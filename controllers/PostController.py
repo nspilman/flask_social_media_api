@@ -14,12 +14,12 @@ class Posts(Resource):
         posts = self.post_provider.get_posts()
         if len(posts) == 0:
             return {"message": "No posts found"}, 404
-        return {"all_posts": posts}
+        return {"all_posts": posts}, 200
 
 class Post(Resource):
     route = "/post/<int:post_id>"
     def get(self, post_id):
-        return {"post": post_id}
+        return {"post": post_id}, 200
 
 class Pioneer(Resource):
     route = "/pioneer"
